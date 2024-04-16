@@ -1,6 +1,7 @@
 import {React,useState} from 'react'
 
 const TaskList = ({ todoList, setTodoList }) => {
+    /* HERE WE USE MAP METHOD TO ITERATE EACH ITEM DYNAMICALLY  */
     let list = todoList.map((value, i) => {
         return (
             <TodoItems key={i} value={value} indexId={i} todoList={todoList} setTodoList={setTodoList} />
@@ -21,6 +22,7 @@ function TodoItems({ value, indexId, todoList, setTodoList }) {
     const [buttonText, setButtonText] = useState('Active');
     let  [status,setStatus] = useState(false);
 
+    /* HERE WE WORK TO CHECK IS COMPLETED OR ACTIVE.....  */
     const handleButton = () => {
         setButtonText('Completed');
     };
@@ -29,10 +31,12 @@ function TodoItems({ value, indexId, todoList, setTodoList }) {
         setStatus(true)
     }
 
+    /* HERE WE WORK TO DELETE THE TASK  */
     let deleteTask = () => {
         let finalData = todoList.filter((v, i) => i !== indexId)
         setTodoList(finalData)
     }
+    
     return (
         <li class="w-full cursor-pointer px-4 py-2 border border-gray-200 capitalize rounded-lg mt-4 dark:border-gray-600 bg-gray-50 hover:bg-gray-100">{value}
             <div className='float-end'>

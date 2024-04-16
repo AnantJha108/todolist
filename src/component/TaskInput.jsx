@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TaskInput = ({todoList,saveToDoList}) => {
+const TaskInput = ({saveToDoList}) => {
     return (
         <div class="max-w-md mx-auto">
             <form class="relative" onSubmit={saveToDoList}>
